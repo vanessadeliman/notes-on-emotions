@@ -1,0 +1,134 @@
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Sintoma, sintomas } from "../interface/anotacoes-interface";
+
+export default function Dropdown({
+  callback,
+  initValue,
+}: {
+  initValue: Sintoma | null;
+  callback?: (sintoma: Sintoma) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<Sintoma | null>(null);
+
+  const options = Object.entries(sintomas);
+
+  useEffect(() => {
+    setSelected(initValue);
+  }, [initValue]);
+
+  return (
+    <View>
+      <TouchableOpacity
+        style={styles.input}
+        activeOpacity={0.8}
+        onPress={() => setOpen(!open)}
+      >
+        {selected ? (
+          <View style={styles.selectedContainer}>
+            <Text style={styles.emoji}>
+              {sintomas[selected].emoji}
+            </Text>
+            <Text style={styles.selectedText}>
+              {sintomas[selected].label}
+            </Text>
+          </View>
+        ) : (
+          <Text style={styles.placeholder}>
+            💭 Selecione como você está se sentindo
+          </Text>
+        )}
+      </TouchableOpacity>
+
+      {open && (
+        <View style={styles.dropdown}>
+          {options.map(([key, item], index) => {
+            const isSelected = selected === key;
+
+            return (
+              <TouchableOpacity
+                key={index}
+                activeOpacity={0.7}
+                style={[
+                  styles.item,
+                  isSelected && {
+                    backgroundColor: item.cor + "33", // leve transparência
+                  },
+                ]}
+                onPress={() => {
+                  setSelected(key as Sintoma);
+                  setOpen(false);
+                  callback?.(key as Sintoma);
+                }}
+              >
+                <View style={styles.itemContent}>
+                  <Text style={styles.emoji}>{item.emoji}</Text>
+                  <Text style={styles.itemText}>{item.label}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  input: {
+    backgroundColor: "#FFF",
+    borderRadius: 16,
+    padding: 12,
+    elevation: 2,
+  },
+
+  placeholder: {
+    color: "#999",
+    fontSize: 14,
+  },
+
+  selectedContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  selectedText: {
+    fontSize: 14,
+    color: "#333",
+  },
+
+  dropdown: {
+    marginTop: 8,
+    backgroundColor: "#FFF",
+    borderRadius: 16,
+    paddingVertical: 4,
+    elevation: 3,
+  },
+
+  item: {
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+  },
+
+  itemContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  itemText: {
+    fontSize: 14,
+    color: "#333",
+  },
+
+  emoji: {
+    fontSize: 18,
+    marginRight: 10,
+  },
+});
