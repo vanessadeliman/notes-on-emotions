@@ -5,16 +5,19 @@ import {
     Text,
     TextInput,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from "react-native";
 import Dropdown from "./dropdown";
 import DataPicker from "./date-picker";
 import { salvarAnotacao } from "../store/thunks/thunks";
 import { Sintoma } from "../interface/anotacoes-interface";
 import { useAppDispatch } from "../store/store";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function AnotacaoForm() {
     const dispatch = useAppDispatch();
+    const insets = useSafeAreaInsets();
 
     const [sintoma, setSintoma] = React.useState<Sintoma | null>(null);
     const [descricao, setDescricao] = React.useState<string>("");
@@ -27,8 +30,8 @@ export default function AnotacaoForm() {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <KeyboardAvoidingView>
+        <ScrollView style={styles.container}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F8FC', marginBottom: insets.bottom }}>
                 <Text style={styles.label}>📅 Data</Text>
                 <View style={styles.card}>
                     <DataPicker onChange={setData} value={data} />
@@ -36,7 +39,10 @@ export default function AnotacaoForm() {
                 <Text style={styles.label}>💖 Sintoma</Text>
                 <Dropdown callback={setSintoma} initValue={sintoma} />
                 <Text style={styles.label}>📝 Observação</Text>
-                <View style={styles.card}>
+                <KeyboardAvoidingView
+                    style={styles.card}
+                    behavior={"height"}
+                    keyboardVerticalOffset={80}>
                     <TextInput
                         value={descricao}
                         onChangeText={setDescricao}
@@ -44,8 +50,7 @@ export default function AnotacaoForm() {
                         placeholder="Escreva como você se sentiu..."
                         placeholderTextColor="#999"
                         multiline
-                    />
-                </View>
+                    /></KeyboardAvoidingView>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={async () => {
@@ -66,8 +71,8 @@ export default function AnotacaoForm() {
                     <Text style={styles.buttonText}>✨ Salvar anotação</Text>
                 </TouchableOpacity>
 
-            </KeyboardAvoidingView>
-        </View>
+            </SafeAreaView>
+        </ScrollView>
     );
 }
 

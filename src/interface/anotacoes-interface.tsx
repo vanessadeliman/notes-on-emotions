@@ -1,4 +1,33 @@
-export type Sintoma = 'DOR_CABECA' | 'DOR_ESTOMAGO' | 'FADIGA' | 'INSOMNIO' | 'PERDA_APETITE' | 'TENSAO_MUSCULAR' | 'IRRITABILIDADE' | 'ANSIEDADE' | 'DESESPERO';
+export type Sintoma =
+    // 🧠 FÍSICOS
+    | 'DOR_CABECA'
+    | 'DOR_ESTOMAGO'
+    | 'FADIGA'
+    | 'INSOMNIO'
+    | 'PERDA_APETITE'
+    | 'TENSAO_MUSCULAR'
+    | 'NAUSEA'
+    | 'TONTURA'
+    | 'PALPITACAO'
+    | 'FALTA_AR'
+
+    // 😤 EMOCIONAIS
+    | 'IRRITABILIDADE'
+    | 'ANSIEDADE'
+    | 'DESESPERO'
+    | 'TRISTEZA'
+    | 'DESANIMO'
+    | 'ESTRESSE'
+    | 'MEDO'
+    | 'CULPA'
+    | 'VERGONHA'
+
+    // 😊 POSITIVOS
+    | 'FELICIDADE'
+    | 'CALMA'
+    | 'MOTIVACAO'
+    | 'FOCO'
+    | 'GRATIDAO';
 
 export interface Anotacao {
     ID: string;
@@ -14,6 +43,7 @@ export type SintomaInfo = {
 };
 
 export const sintomas: Record<Sintoma, SintomaInfo> = {
+    // 🧠 FÍSICOS
     DOR_CABECA: {
         label: "Dor de cabeça",
         emoji: "🤕",
@@ -44,6 +74,28 @@ export const sintomas: Record<Sintoma, SintomaInfo> = {
         emoji: "💪",
         cor: "brown"
     },
+    NAUSEA: {
+        label: "Náusea",
+        emoji: "🤮",
+        cor: "lime"
+    },
+    TONTURA: {
+        label: "Tontura",
+        emoji: "😵",
+        cor: "teal"
+    },
+    PALPITACAO: {
+        label: "Palpitação",
+        emoji: "❤️",
+        cor: "rose"
+    },
+    FALTA_AR: {
+        label: "Falta de ar",
+        emoji: "😮‍💨",
+        cor: "cyan"
+    },
+
+    // 😤 EMOCIONAIS
     IRRITABILIDADE: {
         label: "Irritabilidade",
         emoji: "😠",
@@ -58,5 +110,62 @@ export const sintomas: Record<Sintoma, SintomaInfo> = {
         label: "Desespero",
         emoji: "😞",
         cor: "black"
+    },
+    TRISTEZA: {
+        label: "Tristeza",
+        emoji: "😢",
+        cor: "indigo"
+    },
+    DESANIMO: {
+        label: "Desânimo",
+        emoji: "😔",
+        cor: "slate"
+    },
+    ESTRESSE: {
+        label: "Estresse",
+        emoji: "😫",
+        cor: "amber"
+    },
+    MEDO: {
+        label: "Medo",
+        emoji: "😨",
+        cor: "violet"
+    },
+    CULPA: {
+        label: "Culpa",
+        emoji: "😣",
+        cor: "stone"
+    },
+    VERGONHA: {
+        label: "Vergonha",
+        emoji: "😳",
+        cor: "pink"
+    },
+
+    // 😊 POSITIVOS (muito útil pra balancear o tracking)
+    FELICIDADE: {
+        label: "Felicidade",
+        emoji: "😄",
+        cor: "yellow"
+    },
+    CALMA: {
+        label: "Calma",
+        emoji: "😌",
+        cor: "green"
+    },
+    MOTIVACAO: {
+        label: "Motivação",
+        emoji: "🔥",
+        cor: "orange"
+    },
+    FOCO: {
+        label: "Foco",
+        emoji: "🎯",
+        cor: "blue"
+    },
+    GRATIDAO: {
+        label: "Gratidão",
+        emoji: "🙏",
+        cor: "emerald"
     }
 };

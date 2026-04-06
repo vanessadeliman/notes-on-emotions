@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { sintomas } from "../interface/anotacoes-interface";
 import { format, parse } from "date-fns";
 import { useFocusEffect } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Home({ navigation }) {
+    const insets = useSafeAreaInsets();
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const [mostrarLabel, setMostrarLabel] = useState(false);
@@ -67,7 +69,7 @@ export default function Home({ navigation }) {
             </View>
 
             <FlatList
-                data={Object.entries(anotacoes)}
+                data={Object.entries(anotacoes).filter(([_, anotacoes]) => anotacoes.length > 0)}
                 keyExtractor={(item) => item[0]}
                 renderItem={({ item }) => (
                     <View style={{
@@ -97,6 +99,9 @@ export default function Home({ navigation }) {
                                 return (
                                     <TouchableOpacity
                                         key={index}
+                                        onPress={() => {
+                                            Alert.alert(anotacao.SINTOMA, `Data: ${anotacao.DATA.toLocaleDateString()}\nObs.: ${anotacao.DESCRICAO}`);
+                                        }}
                                         onLongPress={() => {
                                             Alert.alert(
                                                 'Excluir emoção?',
@@ -152,7 +157,7 @@ export default function Home({ navigation }) {
                 onPress={() => navigation.navigate('form')}
                 style={{
                     position: 'absolute',
-                    bottom: 30,
+                    bottom: insets.bottom + 16,
                     right: 20,
                     backgroundColor: '#FF9ECF',
                     borderRadius: 30,
@@ -177,6 +182,7 @@ export default function Home({ navigation }) {
                             backgroundColor: '#FFF',
                             borderTopLeftRadius: 24,
                             borderTopRightRadius: 24,
+                            paddingBottom: insets.bottom + 20,
                             padding: 20,
                             maxHeight: '70%',
                         }}

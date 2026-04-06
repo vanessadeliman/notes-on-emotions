@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -47,7 +48,7 @@ export default function Dropdown({
       </TouchableOpacity>
 
       {open && (
-        <View style={styles.dropdown}>
+        <ScrollView style={styles.dropdown}>
           {options.map(([key, item], index) => {
             const isSelected = selected === key;
 
@@ -74,7 +75,7 @@ export default function Dropdown({
               </TouchableOpacity>
             );
           })}
-        </View>
+        </ScrollView>
       )}
     </View>
   );
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     borderRadius: 16,
     paddingVertical: 4,
+    maxHeight: 200,
     elevation: 3,
   },
 
