@@ -30,7 +30,11 @@ export default function AnotacaoForm() {
     }, []);
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView
+            style={styles.container}
+            keyboardShouldPersistTaps="handled"
+            nestedScrollEnabled
+        >
             <SafeAreaView style={{ flex: 1, backgroundColor: '#F7F8FC', marginBottom: insets.bottom }}>
                 <Text style={styles.label}>📅 Data</Text>
                 <View style={styles.card}>

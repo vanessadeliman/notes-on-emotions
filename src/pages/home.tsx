@@ -6,7 +6,7 @@ import { RootState, useAppDispatch } from "../store/store";
 import { carregarAnotacoesThunk, deletarAnotacaoThunk } from "../store/thunks/thunks";
 import { useSelector } from "react-redux";
 import { sintomas } from "../interface/anotacoes-interface";
-import { format, parse } from "date-fns";
+import { format, formatDate, parse } from "date-fns";
 import { useFocusEffect } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -100,7 +100,10 @@ export default function Home({ navigation }) {
                                     <TouchableOpacity
                                         key={index}
                                         onPress={() => {
-                                            Alert.alert(anotacao.SINTOMA, `Data: ${anotacao.DATA.toLocaleDateString()}\nObs.: ${anotacao.DESCRICAO}`);
+                                            Alert.alert(sintomas[anotacao.SINTOMA].label, `Data: ${isNaN(anotacao.DATA.getTime())
+                                                ? 'Data inválida'
+                                                : format(anotacao.DATA, 'dd/MM/yyyy HH:mm')
+                                                }\nObs.: ${anotacao.DESCRICAO}`);
                                         }}
                                         onLongPress={() => {
                                             Alert.alert(

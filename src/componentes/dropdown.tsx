@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  ScrollView,
+  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -25,7 +25,9 @@ export default function Dropdown({
   }, [initValue]);
 
   return (
-    <View>
+    <View style={{ position: "relative" }}>
+      
+      {/* INPUT */}
       <TouchableOpacity
         style={styles.input}
         activeOpacity={0.8}
@@ -47,35 +49,51 @@ export default function Dropdown({
         )}
       </TouchableOpacity>
 
+      {/* OVERLAY (fecha ao clicar fora) */}
       {open && (
-        <ScrollView style={styles.dropdown}>
-          {options.map(([key, item], index) => {
-            const isSelected = selected === key;
+        <TouchableOpacity
+          style={styles.overlay}
+          activeOpacity={1}
+          onPress={() => setOpen(false)}
+        />
+      )}
 
-            return (
-              <TouchableOpacity
-                key={index}
-                activeOpacity={0.7}
-                style={[
-                  styles.item,
-                  isSelected && {
-                    backgroundColor: item.cor + "33", // leve transparência
-                  },
-                ]}
-                onPress={() => {
-                  setSelected(key as Sintoma);
-                  setOpen(false);
-                  callback?.(key as Sintoma);
-                }}
-              >
-                <View style={styles.itemContent}>
-                  <Text style={styles.emoji}>{item.emoji}</Text>
-                  <Text style={styles.itemText}>{item.label}</Text>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
+      {/* DROPDOWN */}
+      {open && (
+        <View style={styles.dropdown}>
+          <FlatList
+            data={options}
+            keyExtractor={([key]) => key}
+            nestedScrollEnabled
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item: [key, item] }) => {
+              const isSelected = selected === key;
+
+              return (
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  style={[
+                    styles.item,
+                    isSelected && {
+                      backgroundColor: item.cor + "33",
+                    },
+                  ]}
+                  onPress={() => {
+                    setSelected(key as Sintoma);
+                    setOpen(false);
+                    callback?.(key as Sintoma);
+                  }}
+                >
+                  <View style={styles.itemContent}>
+                    <Text style={styles.emoji}>{item.emoji}</Text>
+                    <Text style={styles.itemText}>{item.label}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </View>
       )}
     </View>
   );
@@ -105,12 +123,24 @@ const styles = StyleSheet.create({
   },
 
   dropdown: {
-    marginTop: 8,
+    position: "absolute",
+    top: 60,
+    left: 0,
+    right: 0,
+    maxHeight: 220,
     backgroundColor: "#FFF",
     borderRadius: 16,
+    elevation: 5,
+    zIndex: 100,
     paddingVertical: 4,
-    maxHeight: 200,
-    elevation: 3,
+  },
+
+  overlay: {
+    position: "absolute",
+    top: -1000,
+    bottom: -1000,
+    left: -1000,
+    right: -1000,
   },
 
   item: {

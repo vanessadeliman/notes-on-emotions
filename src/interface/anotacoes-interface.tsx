@@ -1,3 +1,4 @@
+
 export type Sintoma =
     // 🧠 FÍSICOS
     | 'DOR_CABECA'
@@ -47,125 +48,125 @@ export const sintomas: Record<Sintoma, SintomaInfo> = {
     DOR_CABECA: {
         label: "Dor de cabeça",
         emoji: "🤕",
-        cor: "red"
+        cor: "#EF4444" // red-500
     },
     DOR_ESTOMAGO: {
         label: "Dor de estômago",
         emoji: "🤢",
-        cor: "orange"
+        cor: "#F97316" // orange-500
     },
     FADIGA: {
         label: "Fadiga",
         emoji: "😴",
-        cor: "gray"
+        cor: "#6B7280" // gray-500
     },
     INSOMNIO: {
         label: "Insônia",
         emoji: "🌙",
-        cor: "purple"
+        cor: "#8B5CF6" // violet-500
     },
     PERDA_APETITE: {
         label: "Perda de apetite",
         emoji: "🍽️",
-        cor: "yellow"
+        cor: "#EAB308" // yellow-500
     },
     TENSAO_MUSCULAR: {
         label: "Tensão muscular",
         emoji: "💪",
-        cor: "brown"
+        cor: "#92400E" // brown-like
     },
     NAUSEA: {
         label: "Náusea",
         emoji: "🤮",
-        cor: "lime"
+        cor: "#84CC16" // lime-500
     },
     TONTURA: {
         label: "Tontura",
         emoji: "😵",
-        cor: "teal"
+        cor: "#14B8A6" // teal-500
     },
     PALPITACAO: {
         label: "Palpitação",
         emoji: "❤️",
-        cor: "rose"
+        cor: "#F43F5E" // rose-500
     },
     FALTA_AR: {
         label: "Falta de ar",
         emoji: "😮‍💨",
-        cor: "cyan"
+        cor: "#06B6D4" // cyan-500
     },
 
     // 😤 EMOCIONAIS
     IRRITABILIDADE: {
         label: "Irritabilidade",
         emoji: "😠",
-        cor: "red"
+        cor: "#DC2626" // red-600
     },
     ANSIEDADE: {
         label: "Ansiedade",
         emoji: "😰",
-        cor: "blue"
+        cor: "#3B82F6" // blue-500
     },
     DESESPERO: {
         label: "Desespero",
         emoji: "😞",
-        cor: "black"
+        cor: "#111827" // gray-900
     },
     TRISTEZA: {
         label: "Tristeza",
         emoji: "😢",
-        cor: "indigo"
+        cor: "#6366F1" // indigo-500
     },
     DESANIMO: {
         label: "Desânimo",
         emoji: "😔",
-        cor: "slate"
+        cor: "#64748B" // slate-500
     },
     ESTRESSE: {
         label: "Estresse",
         emoji: "😫",
-        cor: "amber"
+        cor: "#F59E0B" // amber-500
     },
     MEDO: {
         label: "Medo",
         emoji: "😨",
-        cor: "violet"
+        cor: "#7C3AED" // violet-600
     },
     CULPA: {
         label: "Culpa",
         emoji: "😣",
-        cor: "stone"
+        cor: "#78716C" // stone-500
     },
     VERGONHA: {
         label: "Vergonha",
         emoji: "😳",
-        cor: "pink"
+        cor: "#EC4899" // pink-500
     },
 
-    // 😊 POSITIVOS (muito útil pra balancear o tracking)
+    // 😊 POSITIVOS
     FELICIDADE: {
         label: "Felicidade",
         emoji: "😄",
-        cor: "yellow"
+        cor: "#FACC15" // yellow-400
     },
     CALMA: {
         label: "Calma",
         emoji: "😌",
-        cor: "green"
+        cor: "#22C55E" // green-500
     },
     MOTIVACAO: {
         label: "Motivação",
         emoji: "🔥",
-        cor: "orange"
+        cor: "#F97316" // orange-500
     },
     FOCO: {
         label: "Foco",
         emoji: "🎯",
-        cor: "blue"
+        cor: "#2563EB" // blue-600
     },
     GRATIDAO: {
         label: "Gratidão",
         emoji: "🙏",
-        cor: "emerald"
+        cor: "#10B981" // emerald-500
     }
 };
