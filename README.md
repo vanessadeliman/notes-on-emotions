@@ -1,97 +1,134 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🧠 Emoções e Sintomas
 
-# Getting Started
+Um aplicativo simples e intuitivo para **registrar, acompanhar e entender suas emoções e sintomas ao longo do tempo**.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## ✨ Funcionalidades
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+* 📅 Registro diário de emoções e sintomas
+* 🧠 Lista organizada por data
+* 🎨 Identificação visual com cores e emojis
+* 🔍 Visualização rápida dos registros
+* 📝 Adição de observações personalizadas
+* 🗑️ Exclusão de registros com confirmação
+* ⚙️ Opções de visualização:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+  * Mostrar/ocultar labels
+  * Mostrar/ocultar ícones
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 📱 Interface
+
+O app foi projetado para ser:
+
+* Simples
+* Rápido
+* Visualmente agradável
+* Fácil de usar no dia a dia
+
+---
+
+## 🧩 Tecnologias utilizadas
+
+* ⚛️ React Native
+* 🧠 Redux (gerenciamento de estado)
+* 💾 AsyncStorage (persistência local)
+* 📅 date-fns (formatação de datas)
+* 🎨 React Native Paper (UI)
+
+---
+
+## 🧠 Tipos de registros
+
+### 🧠 Sintomas físicos
+
+* Dor de cabeça 🤕
+* Dor de estômago 🤢
+* Fadiga 😴
+* Insônia 🌙
+* Tensão muscular 💪
+* Náusea 🤮
+* Tontura 😵
+* Palpitação ❤️
+* Falta de ar 😮‍💨
+
+---
+
+### 😤 Emoções
+
+* Ansiedade 😰
+* Irritabilidade 😠
+* Tristeza 😢
+* Estresse 😫
+* Medo 😨
+* Culpa 😣
+* Vergonha 😳
+* Desânimo 😔
+* Desespero 😞
+
+---
+
+### 😊 Emoções positivas
+
+* Felicidade 😄
+* Calma 😌
+* Motivação 🔥
+* Foco 🎯
+* Gratidão 🙏
+
+---
+
+## 📊 Objetivo do app
+
+Ajudar você a:
+
+* Entender padrões emocionais
+* Identificar gatilhos
+* Melhorar o autocuidado
+* Desenvolver mais consciência emocional
+
+---
+
+## 🚀 Como rodar o projeto
+
+```bash
+# instalar dependências
+npm install
+
+# iniciar o projeto
+npx react-native start
+
+# rodar no Android
+npx react-native run-android
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## ⚠️ Observações
 
-### Android
+* Os dados são armazenados localmente no dispositivo
+* Não há integração com backend (offline-first)
 
-```sh
-# Using npm
-npm run android
+---
 
-# OR using Yarn
-yarn android
-```
+## 💡 Próximas melhorias
 
-### iOS
+* 📊 Gráficos de humor ao longo do tempo
+* 🌙 Tema escuro
+* ☁️ Backup em nuvem
+* 🔔 Notificações de registro diário
+* 🔎 Filtros avançados
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+---
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## ❤️ Sobre
 
-```sh
-bundle install
-```
+Este app foi criado com o objetivo de facilitar o **autoconhecimento emocional** de forma simples e acessível.
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+## 📌 Licença
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Projeto de uso pessoal / educacional.
