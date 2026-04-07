@@ -26,7 +26,6 @@ export default function AnotacaoForm() {
     const limparForm = useCallback(() => {
         setDescricao("");
         setSintoma(null);
-        setData(new Date());
     }, []);
 
     return (

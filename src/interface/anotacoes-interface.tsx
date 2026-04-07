@@ -13,6 +13,9 @@ export type Sintoma =
     | 'FALTA_AR' 
     | 'DESCAMACAO'
     | 'TREMOR'
+    | 'PRESSAO'
+    | 'INCHACO'
+    | 'AZIA'
 
     // 😤 EMOCIONAIS
     | 'IRRITABILIDADE'
@@ -52,15 +55,30 @@ export const sintomas: Record<Sintoma, SintomaInfo> = {
         emoji: "🤕",
         cor: "#EF4444" // red-500
     },
+    INCHACO: {
+        label: "Inchaço na barriga",
+        emoji: "🤰",
+        cor: "#723a12" // orange-500
+    },
+    AZIA: {
+        label: "Azia",
+        emoji: "🔥",
+        cor: "#644c3b" // orange-500
+    },
     DESCAMACAO: {
         label: "Descamação da pele",
         emoji: "🩹",
         cor: "#ffc186" // red-500
     },
+    PRESSAO: {
+        label: "Pressão arterial",
+        emoji: "📈",
+        cor: "#F43F5E" // rose-500
+    },
     TREMOR: {
         label: "Tremor",
         emoji: "😵",
-        cor: "#ffc186" // red-500
+        cor: "#44efe6" // red-500
     },
     DOR_ESTOMAGO: {
         label: "Dor de estômago",
