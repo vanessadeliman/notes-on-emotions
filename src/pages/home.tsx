@@ -95,15 +95,12 @@ export default function Home({ navigation }) {
                         }}>
                             {item[1].map((anotacao, index) => {
                                 const dado = sintomas[anotacao.SINTOMA];
-
+                                const dataAnotacao = format(anotacao.DATA, 'dd/MM/yyyy HH:mm')
                                 return (
                                     <TouchableOpacity
                                         key={index}
                                         onPress={() => {
-                                            Alert.alert(sintomas[anotacao.SINTOMA].label, `Data: ${isNaN(anotacao.DATA.getTime())
-                                                ? 'Data inválida'
-                                                : format(anotacao.DATA, 'dd/MM/yyyy HH:mm')
-                                                }\nObs.: ${anotacao.DESCRICAO}`);
+                                            Alert.alert(sintomas[anotacao.SINTOMA].label, `Data: ${dataAnotacao}\nObs.: ${anotacao.DESCRICAO}`);
                                         }}
                                         onLongPress={() => {
                                             Alert.alert(

@@ -10,7 +10,9 @@ export type Sintoma =
     | 'NAUSEA'
     | 'TONTURA'
     | 'PALPITACAO'
-    | 'FALTA_AR'
+    | 'FALTA_AR' 
+    | 'DESCAMACAO'
+    | 'TREMOR'
 
     // 😤 EMOCIONAIS
     | 'IRRITABILIDADE'
@@ -49,6 +51,16 @@ export const sintomas: Record<Sintoma, SintomaInfo> = {
         label: "Dor de cabeça",
         emoji: "🤕",
         cor: "#EF4444" // red-500
+    },
+    DESCAMACAO: {
+        label: "Descamação da pele",
+        emoji: "🩹",
+        cor: "#ffc186" // red-500
+    },
+    TREMOR: {
+        label: "Tremor",
+        emoji: "😵",
+        cor: "#ffc186" // red-500
     },
     DOR_ESTOMAGO: {
         label: "Dor de estômago",

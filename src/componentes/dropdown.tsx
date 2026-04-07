@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
-  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  ScrollView,
 } from "react-native";
 import { Sintoma, sintomas } from "../interface/anotacoes-interface";
 
@@ -49,7 +49,7 @@ export default function Dropdown({
         )}
       </TouchableOpacity>
 
-      {/* OVERLAY (fecha ao clicar fora) */}
+      {/* OVERLAY */}
       {open && (
         <TouchableOpacity
           style={styles.overlay}
@@ -61,17 +61,16 @@ export default function Dropdown({
       {/* DROPDOWN */}
       {open && (
         <View style={styles.dropdown}>
-          <FlatList
-            data={options}
-            keyExtractor={([key]) => key}
-            nestedScrollEnabled
-            keyboardShouldPersistTaps="handled"
+          <ScrollView
             showsVerticalScrollIndicator={false}
-            renderItem={({ item: [key, item] }) => {
+            keyboardShouldPersistTaps="handled"
+          >
+            {options.map(([key, item]) => {
               const isSelected = selected === key;
 
               return (
                 <TouchableOpacity
+                  key={key}
                   activeOpacity={0.7}
                   style={[
                     styles.item,
@@ -91,8 +90,8 @@ export default function Dropdown({
                   </View>
                 </TouchableOpacity>
               );
-            }}
-          />
+            })}
+          </ScrollView>
         </View>
       )}
     </View>
